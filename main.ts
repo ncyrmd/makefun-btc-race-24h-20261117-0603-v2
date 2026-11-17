@@ -134,8 +134,11 @@ const RANGE: Tier = {
 /** Tiers are tried in this order; the first whose gates pass fires. */
 const TIERS: Tier[] = [WASHOUT, RANGE];
 
-/** Bars to sit out after any exit before either tier may fire. */
-const REST_BARS = 30;
+/** Bars to sit out after any exit before either tier may fire. 35 (up from 30)
+ * gives a falling dip one more half-hour to settle before either tier may
+ * re-buy it; the parameter sweep showed rest 25/30/35 all pass the gates,
+ * so the longer rest costs nothing on the checked windows. */
+const REST_BARS = 35;
 /** Slippage cap, in bps past the close the order was decided on. */
 const SLIPPAGE_CAP_BPS = 100;
 /** Bars of history the bot keeps (the longest window any gate needs). */
